@@ -10,8 +10,12 @@ const contenedorCarrito = document.getElementById('carrito-contenedor');
 const contadorCarrito = document.getElementById("contador-carrito");
 
 // Buscar el enlace del carrito en el header e insertar el contador
-const enlaceCarrito = document.querySelector('a[href="carrito/carrito.html"]');
-enlaceCarrito.appendChild(contadorCarrito);
+const enlaceCarrito = document.querySelector('a[href="carrito.html"]') || document.querySelector('a[href="carrito/carrito.html"]');
+
+// Solo intentar agregar el contador si se encontró el enlace
+if (enlaceCarrito && contadorCarrito) {
+  enlaceCarrito.appendChild(contadorCarrito);
+}
 
 // Mostrar el número actual de productos en el contador
 actualizarContadorCarrito();
@@ -20,6 +24,12 @@ actualizarContadorCarrito();
 // FUNCIÓN PRINCIPAL PARA MOSTRAR EL CARRITO
 // ==========================
 function mostrarCarrito() {
+  // Verificar que el contenedor existe
+  if (!contenedorCarrito) {
+    console.error("No se encontró el contenedor del carrito");
+    return;
+  }
+
   contenedorCarrito.innerHTML = "";
 
   // Si el carrito está vacío
@@ -108,7 +118,16 @@ function eliminarProducto(indice) {
 // CAMBIAR CANTIDAD DE UN PRODUCTO
 // ==========================
 function cambiarCantidad(indice, nuevaCantidad) {
-  carrito[indice].cantidad = parseInt(nuevaCantidad);
+  const cantidad = parseInt(nuevaCantidad);
+  
+  // Validar que la cantidad sea válida
+  if (cantidad < 1 || isNaN(cantidad)) {
+    alert("La cantidad debe ser al menos 1");
+    mostrarCarrito(); // Recargar para restaurar el valor anterior
+    return;
+  }
+  
+  carrito[indice].cantidad = cantidad;
   localStorage.setItem("carrito", JSON.stringify(carrito));
   mostrarCarrito();
 }
@@ -118,8 +137,14 @@ function cambiarCantidad(indice, nuevaCantidad) {
 // ==========================
 function actualizarContadorCarrito() {
   let totalProductos = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  contadorCarrito.textContent = `(${totalProductos})`;
+  if (contadorCarrito) {
+    contadorCarrito.textContent = `(${totalProductos})`;
+  }
 }
 
 // Ejecutar la función para mostrar el carrito al cargar la página
 mostrarCarrito();
+
+// DEBUG: Ver qué hay en el carrito
+console.log("Carrito cargado:", carrito);
+console.log("Total de productos:", carrito.length);

@@ -8,34 +8,6 @@ main, section, article{
 p{
   color: 	#8A7E72;
 }
-article{ 
-    margin: 30px !important;
-    align-items: center;
-    max-width: 1000px; 
-}
-
-.carrusel
-{
-    max-height: 900px;
-    object-fit: cover;
-}
-section{
-    display: grid;
-    place-items: center;
-}
-#imgsection
-{
-    width: 300px;
-    border-radius: 40px;
-}
-.divsection{
-    display: grid;
-    place-items: center;
-}
-.psection
-{
-    text-align: center;
-}
 #navbarNav{
   justify-content: flex-end;
 }

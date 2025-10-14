@@ -71,6 +71,7 @@ listaProductos.forEach(producto => {
         <!-- Botones -->
         <button onclick='agregarProductoAlCarrito(${producto.id})' class="botonproducto">Agregar al carrito</button>
         <button onclick="volverTarjeta(this)" class="botonproducto">Volver</button>
+        <button onclick="verDetalle('${producto.id}')" class="botonproducto">Ver más</button>
       </div>
     </div>
   `;
@@ -90,6 +91,38 @@ function voltearTarjeta(boton) {
 function volverTarjeta(boton) {
   const tarjeta = boton.closest('.tarjeta');
   tarjeta.classList.remove('volteada');
+}
+// ==========================
+// PÁGINA DETALLE
+// ==========================
+function verDetalle(idProducto){
+  console.log("ID recibido:", idProducto, "Tipo:", typeof idProducto);
+  
+  // Convertir a número
+  const id = parseInt(idProducto);
+  console.log("ID convertido:", id);
+  
+  // Buscar el producto
+  let detalleProducto = listaProductos.find(producto => producto.id === id);
+  console.log("Producto encontrado:", detalleProducto);
+  
+  // Verificar que se encontró el producto
+  if (!detalleProducto) {
+    alert("Producto no encontrado");
+    return;
+  }
+  
+  // Convertir a JSON y guardar
+  let detalleJSON = JSON.stringify(detalleProducto);
+  console.log("JSON a guardar:", detalleJSON);
+  
+  localStorage.setItem("detalle", detalleJSON);
+  
+  // Verificar que se guardó
+  console.log("Recuperado de localStorage:", localStorage.getItem("detalle"));
+  
+  // Redirigir
+  window.location.href = "detalle/detalle.html";
 }
 
 // ==========================
