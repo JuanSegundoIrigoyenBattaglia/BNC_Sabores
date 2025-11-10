@@ -189,3 +189,8 @@ button:hover {
   min-width: 20px;
   text-align: center;
 }
+/* Ocultar campo confirmar contraseña por defecto */
+#inpconfirmar,
+label[for="inpconfirmar"] {
+    display: none;
+}
