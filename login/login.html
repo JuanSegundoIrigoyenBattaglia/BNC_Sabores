@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Básico -->
+    <meta name="description" content="Inicia sesión en BNC Sabores para gestionar tus pedidos de repostería artesanal. Accede a tu cuenta y disfruta de beneficios exclusivos.">
+    <meta name="keywords" content="login, iniciar sesión, cuenta usuario, registro, BNC Sabores">
+    <meta name="author" content="BNC Sabores">
+    <meta name="robots" content="noindex, nofollow">
 
     <link rel="stylesheet" href="login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
@@ -20,68 +26,103 @@
 </head>
 <body>
     <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/index.html">Banaco Sabores</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">Banaco Sabores</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/index.html"><img src="/IMG/home.png" alt="Inicio">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="../index.html">
+                                <img src="../IMG/home.png" alt="Inicio">Inicio
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/carrito/carrito.html"><img src="/IMG/carrito.png" alt="Carrito">Carrito</a>
+                            <a class="nav-link" href="../carrito/carrito.html">
+                                <img src="../IMG/carrito.png" alt="Carrito">Carrito
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contacto.html"><img src="/IMG/contacto.png" alt="Contacto">Contacto</a>
+                            <a class="nav-link" href="../contacto/contacto.html">
+                                <img src="../IMG/contacto.png" alt="Contacto">Contacto
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login/login.html"><img src="/IMG/login.svg" alt="Login">Login</a>
+                            <a class="nav-link active" href="login.html">
+                                <img src="../IMG/login.svg" alt="Login">Login
+                            </a>
                         </li>
                     </ul>
-                    </div>
                 </div>
-            </nav>
-        </header>
-    <div class="container">
-            <label for="nombre">Usuario:</label>
-            <input type="text" id="inpusuario" required>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container my-5">
+            <h1 class="text-center mb-4">Iniciar Sesión</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="inpusuario" class="form-label">Usuario:</label>
+                            <input type="text" class="form-control" id="inpusuario" placeholder="Ingresa tu usuario" required>
+                        </div>
 
-            <label for="email">Contraseña:</label>
-            <input type="password" id="inppasword" required>
+                        <div class="mb-3">
+                            <label for="inppasword" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="inppasword" placeholder="Ingresa tu contraseña" required>
+                        </div>
 
-            <label for="telefono">Confirmar contraseña</label>
-            <input type="password" id="inpconfirmar" required>
+                        <div class="mb-3">
+                            <label for="inpconfirmar" class="form-label">Confirmar contraseña:</label>
+                            <input type="password" class="form-control" id="inpconfirmar" placeholder="Confirma tu contraseña" required>
+                        </div>
 
-            <input type="checkbox" id="verpassword">
-            <button id="btniniciar">Iniciar sesión</button>
-            <button id="btnregistrarse">Registrarse</button>
-    </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="verpassword">
+                            <label class="form-check-label" for="verpassword">Mostrar contraseña</label>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="btniniciar">Iniciar sesión</button>
+                            <button type="button" class="btn btn-secondary" id="btnregistrarse">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
     <footer class="footer-banaco">
-            <div class="footer-content">
-                <div class="logo-footer">
-                <img src="/IMG/logo.jpg" alt="Logo Banaco">
+        <div class="footer-content">
+            <div class="logo-footer">
+                <img src="../IMG/logo.jpg" alt="Logo Banaco Sabores">
                 <p>Banaco<br><span>todos los sabores</span></p>
-                </div>
+            </div>
 
-                <div class="footer-links">
-                <a href="/index.html">Inicio</a>
-                <a href="/carrito/carrito.html">Carrito</a>
-                <a href="contacto.html">Contacto</a>
-                </div>
+            <div class="footer-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../carrito/carrito.html">Carrito</a>
+                <a href="../contacto/contacto.html">Contacto</a>
+            </div>
 
-                <div class="footer-social">
+            <div class="footer-social">
                 <p>Seguinos en redes</p>
-                <a href="https://www.instagram.com/bnc.sabores/?hl=es-la"><img src="/IMG/instagram.svg" alt="Instagram">@bnc.sabores</a>
-                <a href="https://www.instagram.com/bnc.sabores/?hl=es-la"><img src="/IMG/facebook.svg" alt="Facebook">@bnc.sabores</a>
-                </div>
+                <a href="https://www.instagram.com/bnc.sabores/?hl=es-la" target="_blank" rel="noopener noreferrer">
+                    <img src="../IMG/instagram.svg" alt="Instagram">@bnc.sabores
+                </a>
+                <a href="https://www.facebook.com/bnc.sabores" target="_blank" rel="noopener noreferrer">
+                    <img src="../IMG/facebook.svg" alt="Facebook">@bnc.sabores
+                </a>
             </div>
-            <div class="footer-bottom">
-                © 2025 Banaco - Todos los derechos reservados.
-            </div>
-        </footer>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Banaco Sabores - Todos los derechos reservados.
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="login.js"></script>
 
